@@ -57,6 +57,12 @@ body {
     padding: 0;
 
 }
+@media (min-width: 1920px) {
+    .wrapper{
+        width: 85%;
+    }
+
+}
 
 .container {
     position: relative;
