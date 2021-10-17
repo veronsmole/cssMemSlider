@@ -279,7 +279,6 @@ body {
     #slide-5:checked ~ .wrapper label:nth-of-type(4) {
         background: gray;
     }
-
     #slide-one {
         background-size: cover;
     }
