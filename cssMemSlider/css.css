@@ -181,6 +181,8 @@ body {
 #slide-3:checked ~ .wrapper label:nth-of-type(3),
 #slide-4:checked ~ .wrapper label:nth-of-type(4),
 #slide-5:checked ~ .wrapper label:nth-of-type(5) {
+    width: 13px;
+    height: 13px;
     background-color: transparent;
     border: 2px solid #71ABFF;
 }
@@ -190,6 +192,8 @@ body {
 #slide-3:checked:hover ~ .wrapper label:nth-of-type(3),
 #slide-4:checked:hover ~ .wrapper label:nth-of-type(4),
 #slide-5:checked:hover ~ .wrapper label:nth-of-type(5) {
+    width: 13px;
+    height: 13px;
     background-color: transparent;
     border: 2px solid #FFFFFF;
 }
@@ -197,12 +201,12 @@ body {
 .text {
     position: relative;
     height: 100%;
-    width: 30%;
+    width: 83%;
     z-index: 20;
     overflow: hidden;
 }
 
-.text > .slide {
+.text .slide {
     transition: none;
 }
 
@@ -216,25 +220,41 @@ body {
 }
 
 @media (max-width: 320px) {
+    body{
+        margin: 0;
+    }
+    html {
+        background-color: #FFFFFF;
+    }
+    .container {
+        background-color: #25282A;
+        margin: 0 auto;
+    }
     .wrapper {
-        height: 50%;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 53%;
         flex-direction: column-reverse;
         justify-content: space-between;
     }
 
     .container {
+        padding-top: 10px;
         width: 95%;
-        margin-left: 2%;
         justify-content: space-between;
     }
 
     .meme-slider {
-        height: 45%;
+        height: 41%;
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .text {
         height: 83%;
-        width: 40%;
+        width: 100%;
     }
 
     .text p {
@@ -246,5 +266,31 @@ body {
     .controls {
         width: 50%;
         margin-left: 26%;
+    }
+    .slide {
+        width: 100%;
+    }
+    #slide-5:checked ~ .wrapper label:nth-of-type(4) {
+        background: gray;
+    }
+
+    #slide-one {
+        background-size: cover;
+    }
+
+    #slide-two {
+        background-size:  cover;
+    }
+
+    #slide-three {
+        background-size:  cover;
+    }
+
+    #slide-four {
+        background-size:  cover;
+    }
+
+    #slide-five {
+        background-size: cover;
     }
 }
