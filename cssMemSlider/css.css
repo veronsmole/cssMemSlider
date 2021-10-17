@@ -1,26 +1,250 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
 html {
     background-color: #25282A;
 }
+
 body {
-    margin: 2.59% 0 0 0;
+    margin: 1% 0 0 0;
     padding: 0;
 
 }
+
 .container {
-    margin: auto auto;
+    position: relative;
+    margin: 2.69% auto 0;
     width: 66.6666667%;
-    height: 100%;
-    background-color: gray;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+#slide-one {
+    background: url("assets/slide-1.jpeg") no-repeat;
+    background-size: contain;
+}
+
+#slide-two {
+    background: url("assets/slide-2.jpeg") no-repeat;
+    background-size: contain;
+}
+
+#slide-three {
+    background: url("assets/slide-3.jpeg") no-repeat;
+    background-size: contain;
+}
+
+#slide-four {
+    background: url("assets/slide-4.jpeg") no-repeat;
+    background-size: contain;
+}
+
+#slide-five {
+    background: url("assets/slide-5.jpeg") no-repeat;
+    background-size: contain;
+}
+
 .radio {
     display: none;
 }
-.meme-slider img{
+
+.meme-slider {
+    height: 83.34%;
+    overflow: hidden;
+    position: relative;
     width: 100%;
+    border-radius: 5%;
+}
+
+.slide {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 100%;
+    width: inherit;
     height: 100%;
+    transition: left 0s .75s;
+}
+
+#slide-1:checked ~ .meme-slider > .slide1,
+#slide-2:checked ~ .meme-slider > .slide2,
+#slide-3:checked ~ .meme-slider > .slide3,
+#slide-4:checked ~ .meme-slider > .slide4,
+#slide-5:checked ~ .meme-slider > .slide5 {
+    left: 0;
+    z-index: 100;
+    transition: left .65s ease-out;
+}
+
+#slide-1:checked ~ .wrapper > .text > .slide1,
+#slide-2:checked ~ .wrapper > .text > .slide2,
+#slide-3:checked ~ .wrapper > .text > .slide3,
+#slide-4:checked ~ .wrapper > .text > .slide4,
+#slide-5:checked ~ .wrapper > .text > .slide5 {
+    left: 0;
+    z-index: 100;
+    transition: left .65s ease-out;
+}
+
+
+.text p {
+    color: white;
+    font-size: 32px;
+    white-space: nowrap;
+}
+
+.wrapper {
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.controls {
+    width: 16%;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 1%;
+}
+
+.text-label {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #71ABFF;
 
 }
-.slide {
-    padding: 0;
-    margin:0;
+
+.text-label:hover,
+#slide-1:hover ~ .controls label:nth-of-type(1),
+#slide-2:hover ~ .controls label:nth-of-type(2),
+#slide-3:hover ~ .controls label:nth-of-type(3),
+#slide-4:hover ~ .controls label:nth-of-type(4),
+#slide-5:hover ~ .controls label:nth-of-type(5) {
+    background-color: white;
+}
+
+#slide-1:checked ~ .wrapper label:nth-of-type(1),
+#slide-2:checked ~ .wrapper label:nth-of-type(2),
+#slide-3:checked ~ .wrapper label:nth-of-type(3),
+#slide-4:checked ~ .wrapper label:nth-of-type(4),
+#slide-5:checked ~ .wrapper label:nth-of-type(5) {
+    background-color: transparent;
+    border: 2px solid #71ABFF;
+}
+
+#slide-1:checked:hover ~ .wrapper label:nth-of-type(1),
+#slide-2:checked:hover ~ .wrapper label:nth-of-type(2),
+#slide-3:checked:hover ~ .wrapper label:nth-of-type(3),
+#slide-4:checked:hover ~ .wrapper label:nth-of-type(4),
+#slide-5:checked:hover ~ .wrapper label:nth-of-type(5) {
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+}
+
+.text {
+    position: relative;
+    height: 100%;
+    width: 30%;
+    z-index: 20;
+    overflow: hidden;
+}
+
+.text > .slide {
+    transition: none;
+}
+
+.bigger-link:before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    left: -15px;
+    bottom: -15px;
+}
+
+@media (max-width: 320px) {
+    .wrapper {
+        height: 50%;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+    }
+
+    .container {
+        width: 95%;
+        margin-left: 2%;
+        justify-content: space-between;
+    }
+
+    .meme-slider {
+        height: 45%;
+    }
+
+    .text {
+        height: 83%;
+        width: 40%;
+    }
+
+    .text p {
+        color: white;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    .controls {
+        width: 50%;
+        margin-left: 26%;
+    }
 }
